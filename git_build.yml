@@ -20,16 +20,9 @@
       become_user: git
       register: __output
       failed_when: __output.rc not in [ 0, 1 ]
-      changed_when: '"user already exists" not in __output.stdout'"
+      changed_when: '"user already exists" not in __output.stdout'
       loop:
-        - "/usr/local/bin/gitea admin user create --admin --username {{ student_user }} --password {{ student_password }} --must-change-password=false --em$
-
-    - name: Create cache folder for working files
-      ansible.builtin.file:
-        path: "/tmp/cache"
-        state: directory
-        mode: '0755'
-
+        - "/usr/local/bin/gitea admin user create --admin --username {{ student_user }} --password {{ student_password }} --must-change-password=false --email {{ student_user }}@localhost"
 
     - name: Create repo for project 
       ansible.builtin.uri:
@@ -64,6 +57,7 @@
         cmd: /usr/bin/git init
         chdir: "/tmp/windows_getting_started"
         creates: "/windows_getting_started/.git" 
+
     - name: Configure git to store credentials
       community.general.git_config:
         name: credential.helper
@@ -87,7 +81,7 @@
         name: user.name
         scope: global
         value: "{{ ansible_user }}"
-        
+
     - name: Configure git email address
       community.general.git_config:
         name: user.email
@@ -97,6 +91,12 @@
     - name: Grab the rsa
       ansible.builtin.set_fact:
         controller_ssh: "{{ lookup('file', '/home/rhel/.ssh/id_rsa.pub') }}"
+
+    - name: Create cache folder for working files
+      ansible.builtin.file:
+        path: "/tmp/cache"
+        state: directory
+        mode: '0755'
 
     - name: Clone a repo with separate git directory
       ansible.builtin.git:
@@ -113,7 +113,7 @@
     - name: Add remote origin to repo
       ansible.builtin.command:
         cmd: "{{ item }}"
-        chdir: "/tmp/windows_getting_started"
+        chdir: "/tmp/windows_getting_started"   
       register: __output
       changed_when: __output.rc == 0
       loop:
