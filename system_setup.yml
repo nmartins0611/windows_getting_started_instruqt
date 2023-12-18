@@ -1,0 +1,17 @@
+---
+- name: Provision System Software
+  hosts: 
+
+  tasks:
+  # Add your code 
+  
+     # - name: Install required software
+     #   ansible.win_chocolatey:
+     #    name:
+     #     - 7zip
+     #     - keepass.install
+     #     - notepadplusplus
+     #     - sysinternals
+     #     - windirstat
+     #   state: present
+    # ignore_errors: yes
