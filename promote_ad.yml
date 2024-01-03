@@ -5,5 +5,9 @@
   # - ansible.windows
   # - microsoft.ad
 
+  vars:
+   dns_domain:
+   safemode_pass:
+
   tasks:
   
