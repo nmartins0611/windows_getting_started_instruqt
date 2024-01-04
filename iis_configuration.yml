@@ -1,5 +1,5 @@
 ---
-- hosts: windows
+- hosts:
   name: This is a play within a playbook
   vars:
     iis_sites:
@@ -48,13 +48,6 @@
         src: 'index.html.j2'
         dest: '{{ item.path }}\index.html'
       with_items: "{{ iis_sites }}"
-
-    - name: Show website addresses
-      ansible.builtin.debug:
-        msg: "{{ item }}"
-      loop:
-        - http://{{ ansible_host }}:8080
-        - http://{{ ansible_host }}:8081
 
   handlers:
     - name: restart iis service
