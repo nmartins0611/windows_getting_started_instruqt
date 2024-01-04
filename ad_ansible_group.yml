@@ -1,8 +1,19 @@
 ---
-- name: Create Windows Ansible group
-  win_domain_group:
-    name: "{{ item.name }}"
-    scope: "{{ item.scope }}"
-    state: present
-    attributes: "{{ item.attributes|default(omit) }}"
-  with_items: "{{ domaingroups }}"
+- hosts: Windows_Servers
+  gather_facts: false
+  collections:
+   - microsoft.ad
+  
+  vars_files:
+    - ad_vars.yml
+    - pass.yml
+
+  tasks:
+  
+    - name: Create Windows Ansible group
+      microsoft.ad win_domain_group:
+       name: "{{ item.name }}"
+       scope: "{{ item.scope }}"
+       state: present
+       attributes: "{{ item.attributes|default(omit) }}"
+      with_items: "{{ domaingroups }}"
