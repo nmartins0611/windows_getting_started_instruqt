@@ -9,9 +9,4 @@
      #   ansible.win_chocolatey:
      #    name:
      #     - 7zip
-     #     - keepass.install
-     #     - notepadplusplus
-     #     - sysinternals
-     #     - windirstat
      #   state: present
-    # ignore_errors: yes
