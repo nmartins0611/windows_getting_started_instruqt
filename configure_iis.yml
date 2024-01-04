@@ -1,7 +1,0 @@
----
-- name: Deploy IIS services
-  hosts: 
-
-  tasks:
-
-# Add your code 
