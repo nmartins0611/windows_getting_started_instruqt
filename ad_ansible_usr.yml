@@ -1,12 +1,20 @@
 ---
-- name: Create Windows Ansible user
-  win_domain_user:
-    name: "{{ item.name }}"
-    firstname: "{{item.firstname }}"
-    surname: "{{ item.surname }}"
-    password: "{{ item.password }}"
-    groups: "{{ item.groups|default(omit) }}"
-    state: present
-    email: '"{{ item.name }}"@{{ ad_domain_name}}'
-    attributes: "{{ item.attributes|default(omit) }}"
-  with_items: "{{ domainusers }}"
+- hosts: Windows_Servers
+  gather_facts: false
+  
+  vars_files:
+    - vars.yml
+    - passwd.yml
+
+  tasks:
+  
+   - name: Create Windows Ansible user
+     win_domain_user:
+      name: "{{ item.name }}"
+      firstname: "{{item.firstname }}"
+      surname: "{{ item.surname }}"
+      password: "{{ item.password }}"
+      groups: "{{ item.groups|default(omit) }}"
+      state: present
+      email: '"{{ item.name }}"@{{ ad_domain_name}}'
+     with_items: "{{ domainusers }}"
