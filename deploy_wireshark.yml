@@ -1,7 +1,0 @@
----
-- name: Deploy Wireshark
-  hosts: 
-
-  tasks:
-
-# Add your code 
