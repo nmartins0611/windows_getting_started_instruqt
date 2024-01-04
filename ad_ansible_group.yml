@@ -1,0 +1,8 @@
+---
+- name: Create Windows Ansible group
+  win_domain_group:
+    name: "{{ item.name }}"
+    scope: "{{ item.scope }}"
+    state: present
+    attributes: "{{ item.attributes|default(omit) }}"
+  with_items: "{{ domaingroups }}"
