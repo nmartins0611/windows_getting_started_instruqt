@@ -3,7 +3,7 @@
   hosts: 
 
   tasks:
-  # Add your code 
+    ## Add tasks or uncomment the below
   
      # - name: Install required software
      #   ansible.win_chocolatey:
