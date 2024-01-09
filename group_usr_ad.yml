@@ -5,7 +5,7 @@
    - microsoft.ad
 
   vars_files:
-    - password.yml
+    - passwd.yml
 
   tasks:
 
