@@ -1,3 +1,4 @@
+## Enable PowerShell Remote protocol 
 Enable-PSRemoting -Force
 
 $certParams = @{
@@ -6,6 +7,7 @@ $certParams = @{
 }
 $cert = New-SelfSignedCertificate @certParams
 
+## Configure HTTPS transport 
 $wsmanParams = @{
     ResourceURI = "winrm/config/Listener"
     SelectorSet = @{
@@ -19,6 +21,7 @@ $wsmanParams = @{
 }
 New-WSManInstance @wsmanParams
 
+## Configure Firewall Rules
 $firewallParams = @{
     DisplayName = "Windows Remote Management (HTTPS-In)"
     Direction   = "Inbound"
@@ -28,6 +31,7 @@ $firewallParams = @{
 }
 New-NetFirewallRule @firewallParams
 
+## Regedit to filter access tokens
 $regInfo = @{
     Path         = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Policies\System"
     Name         = "LocalAccountTokenFilterPolicy"
