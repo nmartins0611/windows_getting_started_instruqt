@@ -2,8 +2,8 @@
 - name: Promote to Active Directory
   hosts: Windows_Servers
   collections:
-  # - ansible.windows
-  # - microsoft.ad
+   # - ansible.windows
+   # - microsoft.ad
 
   vars:
    dns_domain:
