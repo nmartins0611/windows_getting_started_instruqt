@@ -3,7 +3,8 @@
   hosts: Sindows_Servers
   gather_facts: no
 
-  
+  vars_files:
+    - passwd.yml
   
   tasks:
     - name: Create DevOps group
