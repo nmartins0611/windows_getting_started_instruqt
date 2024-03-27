@@ -34,6 +34,7 @@
 #
 # Use option -EnableCredSSP to enable CredSSP as an authentication option.
 #
+
 # Use option -DisableBasicAuth to disable basic authentication.
 #
 # Use option -SkipNetworkProfileCheck to skip the network profile check.
@@ -76,7 +77,7 @@ Param (
     [switch]$ForceNewSSLCert,
     [switch]$GlobalHttpFirewallAccess,
     [switch]$DisableBasicAuth = $false,
-    [switch]$EnableCredSSP
+    [switch]$EnableCredSSP = $true
 )
 
 Function Write-ProgressLog {
