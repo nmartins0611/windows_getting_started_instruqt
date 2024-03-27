@@ -4,9 +4,9 @@
   gather_facts: false
 
   tasks:
-    ## Add tasks or uncomment the below
-    #  - name: Install required software
-    #    chocolatey.chocolatey.win_chocolatey:
-    #     name:
-    #      - 7zip
-    #    state: present
+  ## Add tasks or uncomment the below
+  #  - name: Install required software
+  #    chocolatey.chocolatey.win_chocolatey:
+  #     name:
+  #      - 7zip
+  #     state: present
