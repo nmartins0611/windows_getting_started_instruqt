@@ -1,6 +1,6 @@
 ---
 - name: Create local machine users
-  hosts: Sindows_Servers
+  hosts: Windows_Servers
   gather_facts: no
 
   vars_files:
