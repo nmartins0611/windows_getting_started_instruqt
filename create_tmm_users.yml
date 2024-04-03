@@ -4,7 +4,7 @@
   gather_facts: no
 
   vars_files:
-    - passwd.yml
+    - passwd.yml ## Vault file
   
   tasks:
     # - name: Create TMM group
