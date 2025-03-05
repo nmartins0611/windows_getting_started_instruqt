@@ -1,5 +1,8 @@
 # Configure a Windows host for remote management with Ansible
 # -----------------------------------------------------------
+# Invoke-WebRequest -Uri https://raw.githubusercontent.com/nmartins0611/windows_getting_started_instruqt/main/winrm_setup.ps1 -OutFile .\winrm_setup.ps1; .\winrm_setup.ps1
+# Test-WSMan
+#
 #
 # This script checks the current WinRM (PS Remoting) configuration and makes
 # the necessary changes to allow Ansible to connect, authenticate and
